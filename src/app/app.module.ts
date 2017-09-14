@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { FormsModule, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { AppComponent } from './app.component';
 import { BetiEmailComponent } from './beti-email/beti-email.component';
@@ -52,6 +53,7 @@ import {
   MdTooltipModule
 } from '@angular/material';
 import { BetiSignupComponent } from './beti-signup/beti-signup.component';
+import { BetiFirebaseTesterComponent } from './dumps/beti-firebase-tester/beti-firebase-tester.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,8 @@ import { BetiSignupComponent } from './beti-signup/beti-signup.component';
     BetiLoginComponent,
     BetiMenuComponent,
     BetiNavBarComponent,
-    BetiSignupComponent
+    BetiSignupComponent,
+    BetiFirebaseTesterComponent
   ],
   imports: [
     BrowserModule,
@@ -96,6 +99,7 @@ import { BetiSignupComponent } from './beti-signup/beti-signup.component';
     FormsModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -103,6 +107,7 @@ import { BetiSignupComponent } from './beti-signup/beti-signup.component';
         component: BetiEmailComponent
       },
       { path: 'login', component: BetiLoginComponent },
+      { path: 'test', component: BetiFirebaseTesterComponent }
     ])
   ],
   providers: [],
